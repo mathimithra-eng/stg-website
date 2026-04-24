@@ -1425,6 +1425,17 @@ body, .app-container {
         gap: 60px;
     }
 
+    .about-img-badge {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 110px;
+        height: 110px;
+    }
+    
+    .about-img-badge-num {
+        font-size: 22px;
+    }
+
     .footer-links-grid {
         grid-template-columns: 1fr 1fr;
     }

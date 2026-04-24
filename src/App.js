@@ -419,12 +419,15 @@ function Contact() {
             <h2 className="contact-info-heading">Let's Build<br />Something <strong>Extraordinary</strong></h2>
             <p className="contact-info-text">Have a project in mind? Our team of engineers, designers, and strategists is ready to transform your vision into a powerful digital reality.</p>
             <div className="contact-detail-list">
-              <a href="https://wa.me/918056823309" target="_blank" rel="noreferrer" className="contact-detail-item">
+              <div className="contact-detail-item">
                 <div className="contact-detail-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{width:'20px'}}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-13.3 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
                 </div>
-                <span>+91 80568 23309</span>
-              </a>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                  <a href="https://wa.me/918056823309" target="_blank" rel="noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>+91 80568 23309</a>
+                  <a href="https://stg-website-rouge.vercel.app/" target="_blank" rel="noreferrer" style={{fontSize: '12px', opacity: 0.6, textDecoration: 'none', color: 'inherit', marginTop: '4px'}}>stg-website-rouge.vercel.app</a>
+                </div>
+              </div>
               <div className="contact-detail-item"><div className="contact-detail-icon">🌐</div><span>www.stgtech.com</span></div>
             </div>
             <div className="branches-wrap">
