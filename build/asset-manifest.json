@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0f411671.css",
+    "main.js": "/static/js/main.39a05feb.js",
+    "static/media/stg-logo.png": "/static/media/stg-logo.e488fbfa0a0c6c9b8928.png",
+    "index.html": "/index.html",
+    "main.0f411671.css.map": "/static/css/main.0f411671.css.map",
+    "main.39a05feb.js.map": "/static/js/main.39a05feb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f411671.css",
+    "static/js/main.39a05feb.js"
+  ]
+}

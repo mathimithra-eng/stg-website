@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import bgVideo from './assets/bg-video.mp4';
 import stgLogo from './stg-logo.png';
 import './App.css';
 
@@ -181,9 +180,9 @@ function Navbar({ scrolled }) {
 
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>Home</a></li>
-          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>About</a></li>
-          <li><a href="#products" onClick={(e) => { e.preventDefault(); scrollTo('products'); }}>Services</a></li>
-          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>Products</a></li>
+          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a></li>
+          <li><a href="#products" onClick={(e) => { e.preventDefault(); scrollTo('products'); }}>Products</a></li>
+          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a></li>
           <li><a href="#contact" className="nav-cta-btn" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>Contact Us</a></li>
         </ul>
       </div>
