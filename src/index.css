@@ -1,0 +1,42 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red-900: #2a0000; --red-800: #4a0000; --red-700: #8b0000;
+  --red-600: #cc0000; --red-500: #ff0000; --red-400: #ff3333;
+  --red-300: #ff6666; --red-glow: rgba(255,0,0,0.6);
+  --bg-void: #000000; --bg-base: #020202; --bg-surface: #050505;
+  --bg-elevated: #080808; --bg-card: #0a0a0a;
+  --text-primary: #ffffff; --text-secondary: #cccccc;
+  --text-muted: #666666; --text-accent: #ff0000;
+  --border-subtle: rgba(255,0,0,0.1);
+  --border-red: rgba(255,0,0,0.2);
+  --border-red-bright: rgba(255,0,0,0.5);
+  --font-display: "DM Sans", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --section-pad: clamp(80px, 10vw, 140px);
+  --container: 1240px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-void); }
+::-webkit-scrollbar-thumb { background: var(--red-700); }
+::selection { background: rgba(185,28,28,0.3); color: var(--text-primary); }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes slideLeft { from { opacity:0; transform:translateX(-32px); } to { opacity:1; transform:translateX(0); } }
+@keyframes redPulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+@keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes antigrav { 0%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-18px) rotate(3deg)} 100%{transform:translateY(0px) rotate(0deg)} }
+@keyframes stgDrift { 0%{transform:translateX(0) translateY(0)} 25%{transform:translateX(8px) translateY(-4px)} 50%{transform:translateX(0) translateY(-8px)} 75%{transform:translateX(-8px) translateY(-4px)} 100%{transform:translateX(0) translateY(0)} }
+@keyframes shimmerText { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes floatParticle { 0%{transform:translateY(0) scale(1);opacity:0.8} 100%{transform:translateY(-120vh) scale(0.3);opacity:0} }
