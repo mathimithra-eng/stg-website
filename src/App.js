@@ -621,6 +621,7 @@ export default function App() {
       <CodingBackground />
       <div className="bg-overlay" />
       <Navbar scrolled={scrolled} />
+      <FloatingSocial />
       <main>
         <Hero />
         <Services />
