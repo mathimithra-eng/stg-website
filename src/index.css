@@ -11,9 +11,9 @@
   --border-subtle: rgba(255,0,0,0.1);
   --border-red: rgba(255,0,0,0.2);
   --border-red-bright: rgba(255,0,0,0.5);
-  --font-display: "DM Sans", sans-serif;
-  --font-body: "DM Sans", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Inter", monospace;
   --section-pad: clamp(80px, 10vw, 140px);
   --container: 1240px;
 }

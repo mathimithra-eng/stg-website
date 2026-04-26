@@ -36,54 +36,81 @@ function CodingBackground() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let width, height;
-    let columns;
-    let drops = [];
-    const words = ["STG", "TECH", "AI", "CODE", "360", "DEV", "IOT", "01"];
-    const charSet = "01<>{}[]/\\!@#$%^&*";
+    let grid = [];
+    const charSize = 12;
+
+    let maskData = null;
+    const maskCanvas = document.createElement('canvas');
+    const mctx = maskCanvas.getContext('2d');
 
     const resize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-      columns = Math.floor(width / 25);
-      drops = Array(columns).fill(1).map(() => Math.random() * -100);
+      
+      const cols = Math.ceil(width / charSize);
+      const rows = Math.ceil(height / charSize);
+      grid = [];
+      for (let i = 0; i < cols * rows; i++) {
+        grid.push({
+          char: Math.random() > 0.5 ? '1' : '0',
+          opacity: Math.random(),
+          speed: 0.01 + Math.random() * 0.03
+        });
+      }
+
+      // Create mask for "STG"
+      maskCanvas.width = width;
+      maskCanvas.height = height;
+      const fontSize = Math.min(width / 2.5, 500);
+      mctx.font = `900 ${fontSize}px Orbitron`;
+      mctx.textAlign = 'center';
+      mctx.textBaseline = 'middle';
+      mctx.fillStyle = 'white';
+      mctx.fillText('STG', width / 2, height / 2);
+      maskData = mctx.getImageData(0, 0, width, height).data;
     };
 
     resize();
     window.addEventListener('resize', resize);
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.12)';
+      ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.font = '16px "JetBrains Mono"';
+      ctx.font = `${charSize}px "Orbitron"`;
       
-      for (let i = 0; i < drops.length; i++) {
-        const isWord = Math.random() > 0.92;
-        const text = isWord 
-          ? words[Math.floor(Math.random() * words.length)]
-          : charSet[Math.floor(Math.random() * charSet.length)];
-        
-        const isSTG = text === 'STG' || text === 'TECH' || text === 'AI';
-        
-        ctx.fillStyle = isSTG ? '#ff0000' : (Math.random() > 0.5 ? '#660000' : '#330000');
-        
-        if (isSTG) {
-          ctx.shadowBlur = 12;
-          ctx.shadowColor = '#ff0000';
-        } else {
-          ctx.shadowBlur = 0;
-        }
-        
-        ctx.fillText(text, i * 25, drops[i] * 20);
+      const cols = Math.ceil(width / charSize);
+      const rows = Math.ceil(height / charSize);
 
-        if (drops[i] * 20 > height && Math.random() > 0.975) {
-          drops[i] = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = c * charSize;
+          const y = r * charSize;
+          const idx = r * cols + c;
+          const cell = grid[idx];
+
+          if (!cell) continue;
+
+          // Update character and opacity for flicker
+          if (Math.random() > 0.99) cell.char = Math.random() > 0.5 ? '1' : '0';
+          cell.opacity += cell.speed;
+          if (cell.opacity > 1 || cell.opacity < 0.2) cell.speed *= -1;
+
+          const pixelIndex = (y * width + x) * 4;
+          const isInsideSTG = maskData && maskData[pixelIndex] > 0;
+
+          if (isInsideSTG) {
+            ctx.fillStyle = `rgba(255, 0, 0, ${0.4 + cell.opacity * 0.6})`;
+            ctx.fillText(cell.char, x, y);
+          } else {
+            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.3})`;
+            ctx.fillText(cell.char, x, y);
+          }
         }
-        drops[i]++;
       }
     };
 
-    const interval = setInterval(draw, 40);
+    const interval = setInterval(draw, 50);
 
     return () => {
       clearInterval(interval);
@@ -100,7 +127,7 @@ function CodingBackground() {
         inset: 0,
         zIndex: -1,
         pointerEvents: 'none',
-        opacity: 0.6
+        opacity: 1
       }} 
     />
   );
@@ -180,9 +207,9 @@ function Navbar({ scrolled }) {
 
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>Home</a></li>
-          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a></li>
-          <li><a href="#products" onClick={(e) => { e.preventDefault(); scrollTo('products'); }}>Products</a></li>
-          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a></li>
+          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a></li>
+          <li><a href="#products" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a></li>
+          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('products'); }}>Products</a></li>
           <li><a href="#contact" className="nav-cta-btn" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>Contact Us</a></li>
         </ul>
       </div>
