@@ -152,34 +152,7 @@ body, .app-container {
    gap: 12px;
 }
 
-.float-btn {
-   width: 46px;
-   height: 46px;
-   background: rgba(5, 5, 5, 0.85);
-   border: 1px solid var(--border-red);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-   transition: all 0.3s;
-   text-decoration: none;
-   color: var(--text-secondary);
-   border-radius: 4px;
-   backdrop-filter: blur(10px);
-}
 
-.float-btn svg {
-   width: 18px;
-   height: 18px;
-}
-
-.float-btn:hover {
-   border-color: var(--red-400);
-   background: var(--red-800);
-   color: var(--text-primary);
-   transform: scale(1.1);
-   box-shadow: 0 0 16px rgba(220, 38, 38, 0.4);
-}
 
 /* ═══════════════════════════════════════
    NAVBAR

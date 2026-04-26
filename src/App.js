@@ -61,12 +61,16 @@ function CodingBackground() {
       // Create mask for "STG"
       maskCanvas.width = width;
       maskCanvas.height = height;
-      const fontSize = Math.min(width / 2.5, 500);
-      mctx.font = `900 ${fontSize}px Orbitron`;
+      const isMobile = width < 768;
+      const fontSize = isMobile ? Math.min(width / 1.5, 300) : Math.min(width / 2.5, 500);
+      mctx.font = `900 ${fontSize}px Inter`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
-      mctx.fillText('STG', width / 2, height / 2);
+      
+      // Center it slightly higher on mobile to account for navbar/scrolling
+      const centerY = isMobile ? height / 2.2 : height / 2;
+      mctx.fillText('STG', width / 2, centerY);
       maskData = mctx.getImageData(0, 0, width, height).data;
     };
 
@@ -77,7 +81,7 @@ function CodingBackground() {
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.font = `${charSize}px "Orbitron"`;
+      ctx.font = `${charSize}px "Inter"`;
       
       const cols = Math.ceil(width / charSize);
       const rows = Math.ceil(height / charSize);
@@ -155,24 +159,7 @@ function Counter({ to, suffix }) {
 
 // ─── FLOATING SOCIAL BUTTONS ──────────────────────────────────────────────────
 
-function FloatingSocial() {
-  return (
-    <div className="floating-social">
-      <a href="https://www.instagram.com/stg_esports___?igsh=MWJnczMzd3VneGM3cA==" target="_blank" rel="noreferrer" className="float-btn" title="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-        </svg>
-      </a>
-      <a href="https://wa.me/918056823309" target="_blank" rel="noreferrer" className="float-btn" title="WhatsApp">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-13.3 8.38 8.38 0 0 1 3.8.9L21 3z"></path>
-        </svg>
-      </a>
-    </div>
-  );
-}
+
 
 // ─── NAVBAR ───────────────────────────────────────────────────────────────────
 
@@ -621,7 +608,7 @@ export default function App() {
       <CodingBackground />
       <div className="bg-overlay" />
       <Navbar scrolled={scrolled} />
-      <FloatingSocial />
+
       <main>
         <Hero />
         <Services />
