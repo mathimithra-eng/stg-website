@@ -1623,4 +1623,4 @@ body,
         transform: translateY(0);
         opacity: 1;
     }
-}
+}.value-card { position: relative; overflow: hidden; } .value-card-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 1; }

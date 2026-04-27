@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import stgLogo from './stg-logo.png';
+import visionMissionImg from './assets/vision_mission.png';
 import './App.css';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -318,11 +319,15 @@ function About() {
           {[
             { h: 'Vision', t: 'Like a Phoenix rising from the ashes, we embrace every challenge as an opportunity for a powerful comeback. Our vision is defined by resilience—transforming every setback into a stronger, more radiant future for our partners and industries.' },
             { h: 'Mission', t: 'Strategically unpredictable, remarkably consistent. Like the Joker\'s calculated mystery, we stay ahead of the curve while maintaining a seamless, smiling interface—delivering transformative impact exactly where it\'s least expected but most needed.' },
-            { h: 'Innovation', t: "We constantly push boundaries, harnessing emerging technologies to shape intelligent solutions for tomorrow's most complex challenges." },
           ].map((v, i) => (
-            <div key={i} className="value-card">
-              <h3 className="value-heading">{v.h}</h3>
-              <p className="value-text">{v.t}</p>
+            <div key={i} className="value-card" style={{
+              backgroundImage: `url(${visionMissionImg})`,
+              backgroundSize: '200% 100%',
+              backgroundPosition: v.h === 'Vision' ? 'left center' : 'right center'
+            }}>
+              <div className="value-card-overlay"></div>
+              <h3 className="value-heading" style={{ position: 'relative', zIndex: 2 }}>{v.h}</h3>
+              <p className="value-text" style={{ position: 'relative', zIndex: 2 }}>{v.t}</p>
             </div>
           ))}
         </div>
