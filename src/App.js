@@ -62,7 +62,7 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 7.5, 160);
+      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 5, 240);
       mctx.font = `800 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
