@@ -324,7 +324,8 @@ function About() {
             <div key={i} className="value-card" style={{
               backgroundImage: v.h === 'Vision' ? `url(${phoenixImg})` : `url(${jokerImg})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center',
+              textAlign: v.h === 'Vision' ? 'left' : 'right'
             }}>
               <div className="value-card-overlay"></div>
               <h3 className="value-heading" style={{ position: 'relative', zIndex: 2 }}>{v.h}</h3>
