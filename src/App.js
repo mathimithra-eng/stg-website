@@ -62,7 +62,7 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 2.2, 600);
+      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 7.5, 160);
       mctx.font = `800 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
@@ -107,10 +107,10 @@ function CodingBackground() {
           const isInsideSTG = maskData && maskData[pixelIndex] > 0;
 
           if (isInsideSTG) {
-            ctx.fillStyle = `rgba(255, 26, 26, 1)`;
+            ctx.fillStyle = `rgba(255, 26, 26, 0.4)`;
             ctx.fillText(cell.char, x, y);
           } else {
-            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.12})`;
+            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.08})`;
             ctx.fillText(cell.char, x, y);
           }
         }
@@ -196,6 +196,7 @@ function Navbar({ scrolled }) {
         </button>
 
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+          <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>Home</a></li>
           <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a></li>
           <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a></li>
           <li><a href="#products" onClick={(e) => { e.preventDefault(); scrollTo('products'); }}>Projects</a></li>
@@ -218,7 +219,7 @@ function Hero() {
         </div>
         <div className="hero-eyebrow">
           <div className="hero-eyebrow-line" />
-          <span className="hero-eyebrow-text">Global Software Powerhouse</span>
+          <span className="hero-eyebrow-text" style={{ color: '#ffffff' }}>Global Software Powerhouse</span>
           <div className="hero-eyebrow-line" />
         </div>
         <h1 className="hero-title">

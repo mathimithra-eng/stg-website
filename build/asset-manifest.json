@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.f91d3402.css",
-    "main.js": "/static/js/main.8a12e110.js",
+    "main.css": "/static/css/main.b9557c9d.css",
+    "main.js": "/static/js/main.07341bab.js",
     "static/media/stg-logo.png": "/static/media/stg-logo.e488fbfa0a0c6c9b8928.png",
     "index.html": "/index.html",
-    "main.f91d3402.css.map": "/static/css/main.f91d3402.css.map",
-    "main.8a12e110.js.map": "/static/js/main.8a12e110.js.map"
+    "main.b9557c9d.css.map": "/static/css/main.b9557c9d.css.map",
+    "main.07341bab.js.map": "/static/js/main.07341bab.js.map"
   },
   "entrypoints": [
-    "static/css/main.f91d3402.css",
-    "static/js/main.8a12e110.js"
+    "static/css/main.b9557c9d.css",
+    "static/js/main.07341bab.js"
   ]
 }
