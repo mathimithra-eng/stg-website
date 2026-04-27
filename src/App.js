@@ -107,10 +107,10 @@ function CodingBackground() {
           const isInsideSTG = maskData && maskData[pixelIndex] > 0;
 
           if (isInsideSTG) {
-            ctx.fillStyle = `rgba(255, 26, 26, 0.4)`;
+            ctx.fillStyle = `rgba(255, 26, 26, 0.7)`;
             ctx.fillText(cell.char, x, y);
           } else {
-            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.08})`;
+            ctx.fillStyle = `rgba(180, 0, 0, ${cell.opacity * 0.35})`;
             ctx.fillText(cell.char, x, y);
           }
         }
