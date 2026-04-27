@@ -37,7 +37,7 @@ function CodingBackground() {
     const ctx = canvas.getContext('2d');
     let width, height;
     let grid = [];
-    const charSize = 18;
+    const charSize = 12;
 
     let maskData = null;
     const maskCanvas = document.createElement('canvas');
@@ -62,7 +62,7 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 5, 240);
+      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 3.5, 320);
       mctx.font = `800 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
@@ -107,10 +107,10 @@ function CodingBackground() {
           const isInsideSTG = maskData && maskData[pixelIndex] > 0;
 
           if (isInsideSTG) {
-            ctx.fillStyle = `rgba(255, 26, 26, 0.7)`;
+            ctx.fillStyle = `rgba(255, 26, 26, 0.4)`;
             ctx.fillText(cell.char, x, y);
           } else {
-            ctx.fillStyle = `rgba(180, 0, 0, ${cell.opacity * 0.35})`;
+            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.08})`;
             ctx.fillText(cell.char, x, y);
           }
         }
