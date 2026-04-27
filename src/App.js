@@ -62,11 +62,14 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      const fontSize = isMobile ? Math.min(width / 2.8, 250) : Math.min(width / 2.2, 600);
-      mctx.font = `900 ${fontSize}px Inter`;
+      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 2.2, 600);
+      mctx.font = `800 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
+      if (mctx.letterSpacing !== undefined) {
+        mctx.letterSpacing = isMobile ? '2px' : '20px';
+      }
 
       // Center it slightly higher on mobile to account for navbar/scrolling
       const centerY = isMobile ? height / 2.2 : height / 2;
@@ -104,7 +107,7 @@ function CodingBackground() {
           const isInsideSTG = maskData && maskData[pixelIndex] > 0;
 
           if (isInsideSTG) {
-            ctx.fillStyle = `rgba(204, 0, 0, ${0.9 + cell.opacity * 0.1})`;
+            ctx.fillStyle = `rgba(255, 26, 26, 1)`;
             ctx.fillText(cell.char, x, y);
           } else {
             ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.12})`;
