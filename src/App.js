@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import stgLogo from './stg-logo.png';
-import visionMissionImg from './assets/vision_mission.png';
+import phoenixImg from './assets/phoenix.jpg';
+import jokerImg from './assets/joker.jpg';
 import './App.css';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -321,9 +322,9 @@ function About() {
             { h: 'Mission', t: 'Strategically unpredictable, remarkably consistent. Like the Joker\'s calculated mystery, we stay ahead of the curve while maintaining a seamless, smiling interface—delivering transformative impact exactly where it\'s least expected but most needed.' },
           ].map((v, i) => (
             <div key={i} className="value-card" style={{
-              backgroundImage: `url(${visionMissionImg})`,
-              backgroundSize: '200% 100%',
-              backgroundPosition: v.h === 'Vision' ? 'left center' : 'right center'
+              backgroundImage: v.h === 'Vision' ? `url(${phoenixImg})` : `url(${jokerImg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
             }}>
               <div className="value-card-overlay"></div>
               <h3 className="value-heading" style={{ position: 'relative', zIndex: 2 }}>{v.h}</h3>
