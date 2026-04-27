@@ -314,8 +314,6 @@ function About() {
         <div className="section-label" style={{ marginBottom: '56px' }}><span className="section-label-line" /><span className="section-label-text">Who We Are</span></div>
 
         {/* VALUES FIRST - Vision, Mission, Innovation */}
-        <div className="stg-tag">STG · CORE VALUES</div>
-        <div className="section-label" style={{ marginBottom: '40px' }}><span className="section-label-line" /><span className="section-label-text">Our Core Values</span></div>
         <div className="values-grid">
           {[
             { h: 'Vision', t: 'Like a Phoenix rising from the ashes, we embrace every challenge as an opportunity for a powerful comeback. Our vision is defined by resilience—transforming every setback into a stronger, more radiant future for our partners and industries.' },
