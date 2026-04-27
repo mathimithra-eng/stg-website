@@ -13,7 +13,7 @@ const SERVICES = [
   { num: '06', name: 'AI & Automation', img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=75&auto=format&fit=crop', desc: 'Intelligent automation powered by cutting-edge AI to streamline operations and unlock business potential.' },
 ];
 
-const PRODUCTS = [
+const PROJECTS = [
   { tag: 'IoT Solutions', title: 'Smart Monitoring & Automation', img: 'https://images.unsplash.com/photo-1601132359864-c974e79890ac?w=1000&q=80&auto=format&fit=crop', desc: 'End-to-end IoT ecosystem connecting physical environments with intelligent digital control.', features: ['Home & Industry Automation — smart lighting, EB management, automated door systems', 'Smart Monitoring System — real-time energy tracking with secure biometric access control', 'GPS Tracking — location-based automation and live monitoring for enhanced operational control'], reverse: false },
   { tag: 'Corporate Suite', title: 'Business Automation Platform', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80&auto=format&fit=crop', desc: 'Unified enterprise platform streamlining HR, finance, and operations in one intelligent ecosystem.', features: ['HR functions — employee onboarding, attendance, leave management and performance tracking', 'Project management — real-time collaboration, deadline monitoring and workflow automation', 'Financial suite — budgeting, invoicing, expense tracking and integrated order management'], reverse: true },
   { tag: 'Web Applications', title: 'Capture360, Libro360AI & Property360', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80&auto=format&fit=crop', desc: 'Purpose-built web platforms delivering AI-driven insights across industries.', features: ['Capture360 — real-time construction site monitoring, resource tracking, AI-driven analytics', 'Libro360AI — adaptive learning management with intelligent recruitment and talent analytics', 'Property360 — automated real estate platform for listings, client engagement and sales ops'], reverse: false },
@@ -46,7 +46,7 @@ function CodingBackground() {
     const resize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-      
+
       const cols = Math.ceil(width / charSize);
       const rows = Math.ceil(height / charSize);
       grid = [];
@@ -62,12 +62,12 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      const fontSize = isMobile ? Math.min(width / 1.5, 300) : Math.min(width / 2.5, 500);
+      const fontSize = isMobile ? Math.min(width / 2.8, 250) : Math.min(width / 2.2, 600);
       mctx.font = `900 ${fontSize}px Inter`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
-      
+
       // Center it slightly higher on mobile to account for navbar/scrolling
       const centerY = isMobile ? height / 2.2 : height / 2;
       mctx.fillText('STG', width / 2, centerY);
@@ -82,7 +82,7 @@ function CodingBackground() {
       ctx.fillRect(0, 0, width, height);
 
       ctx.font = `${charSize}px "Inter"`;
-      
+
       const cols = Math.ceil(width / charSize);
       const rows = Math.ceil(height / charSize);
 
@@ -104,10 +104,10 @@ function CodingBackground() {
           const isInsideSTG = maskData && maskData[pixelIndex] > 0;
 
           if (isInsideSTG) {
-            ctx.fillStyle = `rgba(255, 0, 0, ${0.4 + cell.opacity * 0.6})`;
+            ctx.fillStyle = `rgba(204, 0, 0, ${0.9 + cell.opacity * 0.1})`;
             ctx.fillText(cell.char, x, y);
           } else {
-            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.3})`;
+            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.12})`;
             ctx.fillText(cell.char, x, y);
           }
         }
@@ -123,8 +123,8 @@ function CodingBackground() {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
+    <canvas
+      ref={canvasRef}
       className="coding-background"
       style={{
         position: 'fixed',
@@ -132,7 +132,7 @@ function CodingBackground() {
         zIndex: -1,
         pointerEvents: 'none',
         opacity: 1
-      }} 
+      }}
     />
   );
 }
@@ -193,10 +193,9 @@ function Navbar({ scrolled }) {
         </button>
 
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>Home</a></li>
-          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a></li>
-          <li><a href="#products" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a></li>
-          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('products'); }}>Products</a></li>
+          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a></li>
+          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a></li>
+          <li><a href="#products" onClick={(e) => { e.preventDefault(); scrollTo('products'); }}>Projects</a></li>
           <li><a href="#contact" className="nav-cta-btn" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>Contact Us</a></li>
         </ul>
       </div>
@@ -212,7 +211,7 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-content">
         <div className="hero-stg-badge-wrap">
-          <div className="hero-stg-badge antigrav">STG Tech</div>
+          <div className="hero-stg-badge antigrav">STG <span className="text-red">TECH</span></div>
         </div>
         <div className="hero-eyebrow">
           <div className="hero-eyebrow-line" />
@@ -235,7 +234,7 @@ function Hero() {
         <span className="hero-scroll-text">Scroll</span>
       </div>
     </section>
-    
+
   );
 }
 
@@ -270,16 +269,16 @@ function Services() {
 
 // ─── PRODUCTS ─────────────────────────────────────────────────────────────────
 
-function Products() {
+function Projects() {
   return (
     <section className="section section-alt" id="products">
       <div className="container" style={{ marginBottom: '56px' }}>
         <div className="stg-tag">STG · SOLUTIONS</div>
         <div className="section-label"><span className="section-label-line" /><span className="section-label-text">What We've Built</span></div>
-        <h2 className="section-heading">Our <strong>Products</strong></h2>
+        <h2 className="section-heading">Our <strong>Projects</strong></h2>
       </div>
       <div className="products-container">
-        {PRODUCTS.map((p, i) => (
+        {PROJECTS.map((p, i) => (
           <div key={i} className={`product-row${p.reverse ? ' reverse' : ''}`}>
             <div className="product-image-wrap">
               <img src={p.img} alt={p.title} loading="lazy" />
@@ -313,15 +312,14 @@ function About() {
           <div className="about-image-stack">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=80&auto=format&fit=crop" alt="Team" className="about-img-main" loading="lazy" />
             <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=75&auto=format&fit=crop" alt="Innovation" className="about-img-accent" loading="lazy" />
-            <div className="about-img-badge"><div className="about-img-badge-num">360°</div><div className="about-img-badge-txt">Holistic Approach</div></div>
           </div>
           <div className="about-text">
-            <h2 className="section-heading">The <strong>Story</strong> Behind<br />Our Name</h2>
-            <p className="section-subtext" style={{ marginTop: '16px' }}>Three pillars, one powerful mission — STG — carrying deep meaning about how we build, who we serve, and where we're headed.</p>
+            <h2 className="section-heading">The <strong>Story</strong> Behind<br /><strong>STG</strong></h2>
+            <p className="section-subtext" style={{ marginTop: '16px' }}>Three pillars define our identity — Strategic thinking, Technological innovation, and Global ambition. This is STG.</p>
             {[
-              { num: '01', h: 'Strategic — Global Vision', t: 'Our name symbolizes the strategic precision that defines every member of our team. We approach every project with creativity and unwavering craft.' },
-              { num: '02', h: '360 — Holistic Vision', t: "We consider every angle. Our 360 approach means no detail is overlooked, no perspective ignored — delivering solutions that are truly complete." },
-              { num: '03', h: 'AI — The Future Now', t: "Artificial intelligence isn't tomorrow's technology for us — it's the foundation of everything we build today, creating experiences that are forward-thinking and transformative." },
+              { num: '01', h: 'Strategic Excellence', t: 'Focused on delivering high-impact solutions through precision engineering and tactical business intelligence.' },
+              { num: '02', h: 'Technological Innovation', t: "Leveraging cutting-edge AI and automation to redefine industrial standards and operational efficiency." },
+              { num: '03', h: 'Global Impact', t: "Driving transformative success for partners across the globe with scalable, future-ready digital ecosystems." },
             ].map((s, i) => (
               <div key={i} className="about-story-item">
                 <div className="about-story-num">{s.num}</div>
@@ -344,12 +342,12 @@ function About() {
 
         {/* VALUES */}
         <div style={{ marginTop: '80px' }}>
-          <div className="stg-tag">STG · Core Values</div>
+          <div className="stg-tag">STG · CORE VALUES</div>
           <div className="section-label" style={{ marginBottom: '40px' }}><span className="section-label-line" /><span className="section-label-text">Our Core Values</span></div>
           <div className="values-grid">
             {[
-              { h: 'Vision', t: 'To become a global leader in intelligent digital transformation — empowering industries through AI, design, and relentless innovation.' },
-              { h: 'Mission', t: 'To craft future-ready experiences by blending creativity, technology, and strategy — driven by purpose, fueled by passion.' },
+              { h: 'Vision', t: 'Like a Phoenix rising from the ashes, we embrace every challenge as an opportunity for a powerful comeback. Our vision is defined by resilience—transforming every setback into a stronger, more radiant future for our partners and industries.' },
+              { h: 'Mission', t: 'Strategically unpredictable, remarkably consistent. Like the Joker’s calculated mystery, we stay ahead of the curve while maintaining a seamless, smiling interface—delivering transformative impact exactly where it’s least expected but most needed.' },
               { h: 'Innovation', t: "We constantly push boundaries, harnessing emerging technologies to shape intelligent solutions for tomorrow's most complex challenges." },
             ].map((v, i) => (
               <div key={i} className="value-card">
@@ -435,7 +433,7 @@ function Contact() {
             <div className="contact-detail-list">
               <a href="https://wa.me/918056823309" target="_blank" rel="noreferrer" className="contact-detail-item">
                 <div className="contact-detail-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{width:'20px'}}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-13.3 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px' }}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-13.3 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
                 </div>
                 <span>+91 80568 23309</span>
               </a>
@@ -524,8 +522,8 @@ function Footer({ onLegalClick }) {
         <div className="footer-top">
           <div className="footer-brand-col">
             <div className="footer-logo-box">
-              <div className="footer-logo-outline sm">
-                <img src={stgLogo} alt="STG Logo" className="footer-logo-img" />
+              <div className="logo-glow-container sm">
+                <img src={stgLogo} alt="STG Logo" className="nav-logo-img" />
               </div>
               <div className="footer-logo-text-group">
                 <div className="footer-logo-text">STG <span className="text-red">TECH</span></div>
@@ -544,7 +542,7 @@ function Footer({ onLegalClick }) {
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#products">Products</a></li>
+                <li><a href="#products">Projects</a></li>
               </ul>
             </div>
             <div className="footer-col">
@@ -611,9 +609,9 @@ export default function App() {
 
       <main>
         <Hero />
-        <Services />
-        <Products />
         <About />
+        <Services />
+        <Projects />
         <Partners />
         <Contact />
       </main>
