@@ -37,7 +37,7 @@ function CodingBackground() {
     const ctx = canvas.getContext('2d');
     let width, height;
     let grid = [];
-    const charSize = 12;
+    const charSize = 18;
 
     let maskData = null;
     const maskCanvas = document.createElement('canvas');
