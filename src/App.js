@@ -215,7 +215,7 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-content">
         <div className="hero-stg-badge-wrap">
-          <div className="hero-stg-badge antigrav">STG <span className="text-red">TECH</span></div>
+          <div className="hero-stg-badge">STG <span className="text-red">TECH</span></div>
         </div>
         <div className="hero-eyebrow">
           <div className="hero-eyebrow-line" />
@@ -225,7 +225,7 @@ function Hero() {
         <h1 className="hero-title">
           We Build
           <span className="hero-title-bold">Digital</span>
-          <span className="hero-title-accent">Experiences.</span>
+          <span className="hero-title-accent">Experiences</span>
         </h1>
         <p className="hero-subtitle">Crafting innovative technology solutions that transform businesses and elevate user experiences — powered by intelligence, built for the future.</p>
         <div className="hero-actions">
@@ -312,25 +312,45 @@ function About() {
       <div className="container">
         <div className="stg-tag">STG · EMPOWERING SUCCESS</div>
         <div className="section-label" style={{ marginBottom: '56px' }}><span className="section-label-line" /><span className="section-label-text">Who We Are</span></div>
-        <div className="about-grid">
-          <div className="about-image-stack">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=80&auto=format&fit=crop" alt="Team" className="about-img-main" loading="lazy" />
-            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=75&auto=format&fit=crop" alt="Innovation" className="about-img-accent" loading="lazy" />
-          </div>
-          <div className="about-text">
-            <h2 className="section-heading">The <strong>Story</strong> Behind<br /><strong>STG</strong></h2>
-            <p className="section-subtext" style={{ marginTop: '16px' }}>Three pillars define our identity — Strategic thinking, Technological innovation, and Global ambition. This is STG.</p>
-            {[
-              { num: '01', h: 'Strategic Excellence', t: 'Focused on delivering high-impact solutions through precision engineering and tactical business intelligence.' },
-              { num: '02', h: 'Technological Innovation', t: "Leveraging cutting-edge AI and automation to redefine industrial standards and operational efficiency." },
-              { num: '03', h: 'Global Impact', t: "Driving transformative success for partners across the globe with scalable, future-ready digital ecosystems." },
-            ].map((s, i) => (
-              <div key={i} className="about-story-item">
-                <div className="about-story-num">{s.num}</div>
-                <h4 className="about-story-heading">{s.h}</h4>
-                <p className="about-story-text">{s.t}</p>
-              </div>
-            ))}
+
+        {/* VALUES FIRST - Vision, Mission, Innovation */}
+        <div className="stg-tag">STG · CORE VALUES</div>
+        <div className="section-label" style={{ marginBottom: '40px' }}><span className="section-label-line" /><span className="section-label-text">Our Core Values</span></div>
+        <div className="values-grid">
+          {[
+            { h: 'Vision', t: 'Like a Phoenix rising from the ashes, we embrace every challenge as an opportunity for a powerful comeback. Our vision is defined by resilience—transforming every setback into a stronger, more radiant future for our partners and industries.' },
+            { h: 'Mission', t: 'Strategically unpredictable, remarkably consistent. Like the Joker\'s calculated mystery, we stay ahead of the curve while maintaining a seamless, smiling interface—delivering transformative impact exactly where it\'s least expected but most needed.' },
+            { h: 'Innovation', t: "We constantly push boundaries, harnessing emerging technologies to shape intelligent solutions for tomorrow's most complex challenges." },
+          ].map((v, i) => (
+            <div key={i} className="value-card">
+              <h3 className="value-heading">{v.h}</h3>
+              <p className="value-text">{v.t}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* STORY BEHIND STG */}
+        <div style={{ marginTop: '80px' }}>
+          <div className="about-grid">
+            <div className="about-image-stack">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=80&auto=format&fit=crop" alt="Team" className="about-img-main" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=75&auto=format&fit=crop" alt="Innovation" className="about-img-accent" loading="lazy" />
+            </div>
+            <div className="about-text">
+              <h2 className="section-heading">The <strong>Story</strong> Behind<br /><strong>STG</strong></h2>
+              <p className="section-subtext" style={{ marginTop: '16px' }}>Three pillars define our identity — Strategic thinking, Technological innovation, and Global ambition. This is STG.</p>
+              {[
+                { num: '01', h: 'Strategic Excellence', t: 'Focused on delivering high-impact solutions through precision engineering and tactical business intelligence.' },
+                { num: '02', h: 'Technological Innovation', t: "Leveraging cutting-edge AI and automation to redefine industrial standards and operational efficiency." },
+                { num: '03', h: 'Global Impact', t: "Driving transformative success for partners across the globe with scalable, future-ready digital ecosystems." },
+              ].map((s, i) => (
+                <div key={i} className="about-story-item">
+                  <div className="about-story-num">{s.num}</div>
+                  <h4 className="about-story-heading">{s.h}</h4>
+                  <p className="about-story-text">{s.t}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -343,28 +363,11 @@ function About() {
             </div>
           ))}
         </div>
-
-        {/* VALUES */}
-        <div style={{ marginTop: '80px' }}>
-          <div className="stg-tag">STG · CORE VALUES</div>
-          <div className="section-label" style={{ marginBottom: '40px' }}><span className="section-label-line" /><span className="section-label-text">Our Core Values</span></div>
-          <div className="values-grid">
-            {[
-              { h: 'Vision', t: 'Like a Phoenix rising from the ashes, we embrace every challenge as an opportunity for a powerful comeback. Our vision is defined by resilience—transforming every setback into a stronger, more radiant future for our partners and industries.' },
-              { h: 'Mission', t: 'Strategically unpredictable, remarkably consistent. Like the Joker’s calculated mystery, we stay ahead of the curve while maintaining a seamless, smiling interface—delivering transformative impact exactly where it’s least expected but most needed.' },
-              { h: 'Innovation', t: "We constantly push boundaries, harnessing emerging technologies to shape intelligent solutions for tomorrow's most complex challenges." },
-            ].map((v, i) => (
-              <div key={i} className="value-card">
-                <h3 className="value-heading">{v.h}</h3>
-                <p className="value-text">{v.t}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
 }
+
 
 // ─── PARTNERS ────────────────────────────────────────────────────────────────
 
