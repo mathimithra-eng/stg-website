@@ -1386,8 +1386,7 @@ body,
         height: auto;
         background: rgba(5, 5, 5, 0.98);
         backdrop-filter: blur(15px);
-        border: 1px solid var(--border-red);
-        border-right: none;
+
         flex-direction: column;
         justify-content: flex-start;
         padding: 40px 30px;
