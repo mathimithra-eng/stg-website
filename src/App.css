@@ -376,14 +376,14 @@ body,
 
 .hero-stg-badge {
     font-family: var(--font-display);
-    font-size: 24px;
+    font-size: 15px;
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: 3px;
-    border: 2px solid var(--red-500);
-    padding: 12px 30px;
+    border: 1.5px solid var(--red-500);
+    padding: 7px 20px;
     background: rgba(0, 0, 0, 0.8);
-    border-radius: 12px;
+    border-radius: 8px;
     text-transform: uppercase;
     box-shadow: 0 0 12px rgba(255, 26, 26, 0.6), 0 0 30px rgba(255, 26, 26, 0.3), 0 0 60px rgba(255, 26, 26, 0.15);
     animation: badgeGlow 2.5s ease-in-out infinite;
