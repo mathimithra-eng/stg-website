@@ -1620,3 +1620,33 @@ body,
         opacity: 1;
     }
 }.value-card { position: relative; overflow: hidden; } .value-card-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 1; }
+
+/* ═══════════════════════════════════════
+   MOBILE RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .hero-eyebrow {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-eyebrow-line {
+        display: none;
+    }
+
+    .hero-eyebrow-text {
+        font-size: 11px !important;
+        letter-spacing: 2.5px !important;
+        white-space: normal !important;
+        text-align: center;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-eyebrow-text {
+        font-size: 10px !important;
+        letter-spacing: 1.5px !important;
+    }
+}

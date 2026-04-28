@@ -326,7 +326,7 @@ function About() {
               backgroundSize: v.h === 'Vision' ? '155%' : '140%',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: v.h === 'Vision' ? 'top center' : 'center',
-              textAlign: v.h === 'Vision' ? 'left' : 'right'
+              textAlign: 'left'
             }}>
               <div className="value-card-overlay"></div>
               <h3 className="value-heading" style={{ position: 'relative', zIndex: 2 }}>{v.h}</h3>
