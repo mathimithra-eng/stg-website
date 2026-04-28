@@ -338,10 +338,7 @@ function About() {
         {/* STORY BEHIND STG */}
         <div style={{ marginTop: '80px' }}>
           <div className="about-grid">
-            <div className="about-image-stack">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=80&auto=format&fit=crop" alt="Team" className="about-img-main" loading="lazy" />
-              <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=75&auto=format&fit=crop" alt="Innovation" className="about-img-accent" loading="lazy" />
-            </div>
+
             <div className="about-text">
               <h2 className="section-heading">The <strong>Story</strong> Behind<br /><strong>STG</strong></h2>
               <p className="section-subtext" style={{ marginTop: '16px' }}>Three pillars define our identity — Strategic thinking, Technological innovation, and Global ambition. This is STG.</p>
