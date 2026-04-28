@@ -385,6 +385,19 @@ body,
     background: rgba(0, 0, 0, 0.8);
     border-radius: 12px;
     text-transform: uppercase;
+    box-shadow: 0 0 12px rgba(255, 26, 26, 0.6), 0 0 30px rgba(255, 26, 26, 0.3), 0 0 60px rgba(255, 26, 26, 0.15);
+    animation: badgeGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(255, 26, 26, 0.6), 0 0 30px rgba(255, 26, 26, 0.3), 0 0 60px rgba(255, 26, 26, 0.15);
+        border-color: var(--red-500);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 26, 26, 0.9), 0 0 50px rgba(255, 26, 26, 0.5), 0 0 90px rgba(255, 26, 26, 0.25);
+        border-color: var(--red-400);
+    }
 }
 
 .hero-logo-inline {
