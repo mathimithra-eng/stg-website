@@ -1401,13 +1401,13 @@ body,
     .nav-menu li {
         width: 100%;
         text-align: center;
-        margin: 15px 0;
+        margin: 8px 0;
     }
 
     .nav-menu a {
-        font-size: 24px;
+        font-size: 18px;
         display: block;
-        padding: 15px 0;
+        padding: 10px 0;
     }
 
     .services-grid {
@@ -1424,7 +1424,8 @@ body,
     }
 
     .about-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     .about-image-stack {
