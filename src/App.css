@@ -427,13 +427,14 @@ body,
 
 .hero-eyebrow-text {
     font-family: var(--font-mono);
-    font-size: 16px;
-    letter-spacing: 5px;
+    font-size: 13px;
+    letter-spacing: 4px;
     color: #ffffff !important;
     text-transform: uppercase;
     white-space: nowrap;
     font-weight: 700;
 }
+
 
 .hero-title {
     font-family: var(--font-display);
