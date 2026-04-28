@@ -323,8 +323,9 @@ function About() {
           ].map((v, i) => (
             <div key={i} className="value-card" style={{
               backgroundImage: v.h === 'Vision' ? `url(${phoenixImg})` : `url(${jokerImg})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: v.h === 'Vision' ? '155%' : '140%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: v.h === 'Vision' ? 'top center' : 'center',
               textAlign: v.h === 'Vision' ? 'left' : 'right'
             }}>
               <div className="value-card-overlay"></div>

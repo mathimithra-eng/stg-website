@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.33412936.css",
-    "main.js": "/static/js/main.1b2c11e2.js",
+    "main.css": "/static/css/main.ad44aab2.css",
+    "main.js": "/static/js/main.935fbb05.js",
     "static/media/stg-logo.png": "/static/media/stg-logo.e488fbfa0a0c6c9b8928.png",
+    "static/media/phoenix.jpg": "/static/media/phoenix.5a2e48ddfe7a00d47f16.jpg",
+    "static/media/joker.jpg": "/static/media/joker.a0449b95bd49eb68f61c.jpg",
     "index.html": "/index.html",
-    "main.33412936.css.map": "/static/css/main.33412936.css.map",
-    "main.1b2c11e2.js.map": "/static/js/main.1b2c11e2.js.map"
+    "main.ad44aab2.css.map": "/static/css/main.ad44aab2.css.map",
+    "main.935fbb05.js.map": "/static/js/main.935fbb05.js.map"
   },
   "entrypoints": [
-    "static/css/main.33412936.css",
-    "static/js/main.1b2c11e2.js"
+    "static/css/main.ad44aab2.css",
+    "static/js/main.935fbb05.js"
   ]
 }
