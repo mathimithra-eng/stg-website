@@ -165,10 +165,6 @@ function Counter({ to, suffix }) {
   return <div ref={ref} className="stat-value">{val}{suffix}</div>;
 }
 
-// ─── FLOATING SOCIAL BUTTONS ──────────────────────────────────────────────────
-
-
-
 // ─── NAVBAR ───────────────────────────────────────────────────────────────────
 
 function Navbar({ scrolled }) {
@@ -243,7 +239,6 @@ function Hero() {
         <span className="hero-scroll-text">Scroll</span>
       </div>
     </section>
-
   );
 }
 
@@ -276,7 +271,7 @@ function Services() {
   );
 }
 
-// ─── PRODUCTS ─────────────────────────────────────────────────────────────────
+// ─── PROJECTS ─────────────────────────────────────────────────────────────────
 
 function Projects() {
   return (
@@ -339,9 +334,8 @@ function About() {
         </div>
 
         {/* STORY BEHIND STG */}
-        <div style={{ marginTop: '80px' }}>
+        <div style={{ marginTop: '40px' }}>
           <div className="about-grid">
-
             <div className="about-text">
               <h2 className="section-heading">The <strong>Story</strong> Behind<br /><strong>STG</strong></h2>
               <p className="section-subtext" style={{ marginTop: '16px' }}>Three pillars define our identity — Strategic thinking, Technological innovation, and Global ambition. This is STG.</p>
@@ -374,7 +368,6 @@ function About() {
   );
 }
 
-
 // ─── PARTNERS ────────────────────────────────────────────────────────────────
 
 function Partners() {
@@ -390,6 +383,8 @@ function Partners() {
             {[
               { n: 'AWS', t: 'Advanced Technology Partner' },
               { n: 'Azure', t: 'Cloud Solution Provider' },
+              { n: 'Google Cloud', t: 'Premier Partner' },
+              { n: 'NVIDIA', t: 'AI Inception Partner' },
               { n: 'Oracle', t: 'Gold Level Partner' }
             ].map((p, i) => (
               <div key={i} className="partner-item">
@@ -439,14 +434,6 @@ function Contact() {
     };
 
     try {
-      console.log('Sending payload to backend:', payload);
-
-      // Using URLSearchParams might avoid complex preflight in some cases
-      const formData = new URLSearchParams();
-      for (const key in payload) {
-        formData.append(key, payload[key]);
-      }
-
       const res = await fetch(CONTACT_API_URL, {
         method: 'POST',
         mode: 'cors',
@@ -457,25 +444,15 @@ function Contact() {
         body: JSON.stringify(payload),
       });
 
-      console.log('Response status:', res.status);
-
       if (!res.ok) {
-        const errText = await res.text();
-        console.error('Server error response:', errText);
-        try {
-          const errData = JSON.parse(errText);
-          throw new Error(errData?.detail || errData?.message || `Server error: ${res.status}`);
-        } catch (e) {
-          throw new Error(`Server returned error ${res.status}`);
-        }
+        throw new Error(`Server error: ${res.status}`);
       }
 
       setSent(true);
       setForm({ firstName: '', lastName: '', email: '', phone: '', service: '', message: '' });
       setTimeout(() => setSent(false), 5000);
     } catch (err) {
-      console.error('API error:', err);
-      setError(err.message || 'Failed to send message. Please try again.');
+      setError(err.message || 'Failed to send message.');
     } finally {
       setLoading(false);
     }
@@ -487,7 +464,6 @@ function Contact() {
         <div className="stg-tag">STG · GLOBAL</div>
         <div className="section-label" style={{ marginBottom: '56px' }}><span className="section-label-line" /><span className="section-label-text">Get In Touch</span></div>
         <div className="contact-layout">
-          {/* FORM */}
           <div className="contact-form-wrap">
             <h3 className="contact-form-title">Send Us a Message</h3>
             <form onSubmit={handleSubmit}>
@@ -534,37 +510,34 @@ function Contact() {
             </form>
           </div>
 
-          {/* INFO */}
           <div className="contact-info-side">
             <h2 className="contact-info-heading">Let's Build<br />Something <strong>Extraordinary</strong></h2>
             <p className="contact-info-text">Have a project in mind? Our team of engineers, designers, and strategists is ready to transform your vision into a powerful digital reality.</p>
+            
             <div className="contact-detail-list">
-              <a href="https://wa.me/918056823309" target="_blank" rel="noreferrer" className="contact-detail-item">
+              <a href="tel:+918056823309" className="contact-detail-item">
                 <div className="contact-detail-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px' }}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-13.3 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px' }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 </div>
                 <span>+91 80568 23309</span>
               </a>
-              <a href="https://stg-website-rouge.vercel.app/" target="_blank" rel="noreferrer" className="contact-detail-item">
-                <div className="contact-detail-icon">🌐</div>
-                <span>stg-website-rouge.vercel.app</span>
+              <a href="mailto:Admin@stgesports.in" className="contact-detail-item">
+                <div className="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px' }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <span>Admin@stgesports.in</span>
               </a>
             </div>
+
             <div className="branches-wrap">
               <span className="branches-label">Our Offices</span>
               <div className="branches-pills">
                 {['Gobichettipalayam', 'Chennai', 'Bengaluru'].map((b, i) => <span key={i} className="branch-pill">{b}</span>)}
               </div>
             </div>
-            <div className="ceo-quote-box">
-              <p>"At STG, our vision is to empower innovation through intelligence — creating tech that doesn't just work, but inspires."</p>
-              <div className="ceo-name-sm">Sunildharshan</div>
-              <div className="ceo-role-sm">CEO & Founder</div>
-            </div>
           </div>
         </div>
 
-        {/* CEO BLOCK */}
         <div className="ceo-block">
           <div>
             <p className="ceo-quote">"The name STG symbolizes strategic excellence. Every product we ship, every line of code we write, every pixel we design — it is a direct expression of the talent within our team and our relentless commitment to excellence."</p>
@@ -664,7 +637,7 @@ function Footer({ onLegalClick }) {
             <div className="footer-col">
               <h4 className="footer-col-title">CONTACT</h4>
               <div className="footer-social-links">
-                <a href="https://www.instagram.com/stg_esports___?igsh=MWJnczMzd3VneGM3cA==" target="_blank" rel="noreferrer" className="footer-social-item">
+                <a href="https://www.instagram.com/dhar_shan_03?igsh=MWIxcnl2eTZ3Zzk2aQ==" target="_blank" rel="noreferrer" className="footer-social-item">
                   <div className="social-icon-box">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                   </div>
