@@ -311,7 +311,7 @@ function About() {
     <section className="section" id="about">
       <div className="container">
         <div className="stg-tag">STG · EMPOWERING SUCCESS</div>
-        <div className="section-label" style={{ marginBottom: '56px' }}><span className="section-label-line" /><span className="section-label-text">Who We Are</span></div>
+        <div className="section-label" style={{ marginBottom: '32px' }}><span className="section-label-line" /><span className="section-label-text">Who We Are</span></div>
 
         {/* VALUES FIRST - Vision, Mission, Innovation */}
         <div className="values-grid">
