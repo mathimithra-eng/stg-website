@@ -68,14 +68,15 @@ function CodingBackground() {
       maskCanvas.height = height;
       const isMobile = width < 768;
       
-      const fontSize = isMobile ? Math.min(width / 1.8, 280) : Math.min(width / 2.2, 480);
+      // Safety: Use width / 3.2 on mobile to ensure S and G aren't cut off
+      const fontSize = isMobile ? Math.min(width / 3.2, 140) : Math.min(width / 2.2, 480);
       mctx.font = `900 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
       
       if (mctx.letterSpacing !== undefined) {
-        mctx.letterSpacing = isMobile ? '2px' : '35px';
+        mctx.letterSpacing = isMobile ? '0px' : '35px';
       }
 
       const centerX = width / 2;
