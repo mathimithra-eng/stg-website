@@ -67,13 +67,13 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      const fontSize = isMobile ? Math.min(width / 2.4, 220) : Math.min(width / 2.8, 380);
-      mctx.font = `800 ${fontSize}px Orbitron, sans-serif`;
+      const fontSize = isMobile ? Math.min(width / 2.0, 260) : Math.min(width / 2.4, 450);
+      mctx.font = `900 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
       if (mctx.letterSpacing !== undefined) {
-        mctx.letterSpacing = isMobile ? '2px' : '20px';
+        mctx.letterSpacing = isMobile ? '4px' : '30px';
       }
 
       // Center it slightly higher on mobile to account for navbar/scrolling
@@ -112,10 +112,10 @@ function CodingBackground() {
           const isInsideSTG = maskData && maskData[pixelIndex] > 0;
 
           if (isInsideSTG) {
-            ctx.fillStyle = `rgba(255, 26, 26, 0.4)`;
+            ctx.fillStyle = `rgba(255, 26, 26, 0.75)`;
             ctx.fillText(cell.char, x, y);
           } else {
-            ctx.fillStyle = `rgba(50, 0, 0, ${cell.opacity * 0.08})`;
+            ctx.fillStyle = `rgba(80, 0, 0, ${cell.opacity * 0.12})`;
             ctx.fillText(cell.char, x, y);
           }
         }
@@ -462,7 +462,7 @@ function Contact() {
     <section className="section section-alt" id="contact">
       <div className="container">
         <div className="stg-tag">STG · GLOBAL</div>
-        <div className="section-label" style={{ marginBottom: '56px' }}><span className="section-label-line" /><span className="section-label-text">Get In Touch</span></div>
+        <div className="section-label" style={{ marginBottom: '32px' }}><span className="section-label-line" /><span className="section-label-text">Get In Touch</span></div>
         <div className="contact-layout">
           <div className="contact-form-wrap">
             <h3 className="contact-form-title">Send Us a Message</h3>
