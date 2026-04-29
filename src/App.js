@@ -4,6 +4,9 @@ import phoenixImg from './assets/phoenix.jpg';
 import jokerImg from './assets/joker.jpg';
 import './App.css';
 
+// ─── BACKEND API CONFIG ───────────────────────────────────────────────────────
+const CONTACT_API_URL = '/stg_app/contact/';
+
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const SERVICES = [
@@ -405,7 +408,79 @@ function Partners() {
 
 function Contact() {
   const [sent, setSent] = useState(false);
-  const handleSubmit = e => { e.preventDefault(); setSent(true); setTimeout(() => setSent(false), 4000); };
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+  });
+
+  const handleChange = e => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    const payload = {
+      first_name: form.firstName,
+      last_name: form.lastName,
+      email: form.email,
+      phone: form.phone || '',
+      service: form.service || '',
+      message: form.message,
+    };
+
+    try {
+      console.log('Sending payload to backend:', payload);
+
+      // Using URLSearchParams might avoid complex preflight in some cases
+      const formData = new URLSearchParams();
+      for (const key in payload) {
+        formData.append(key, payload[key]);
+      }
+
+      const res = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      console.log('Response status:', res.status);
+
+      if (!res.ok) {
+        const errText = await res.text();
+        console.error('Server error response:', errText);
+        try {
+          const errData = JSON.parse(errText);
+          throw new Error(errData?.detail || errData?.message || `Server error: ${res.status}`);
+        } catch (e) {
+          throw new Error(`Server returned error ${res.status}`);
+        }
+      }
+
+      setSent(true);
+      setForm({ firstName: '', lastName: '', email: '', phone: '', service: '', message: '' });
+      setTimeout(() => setSent(false), 5000);
+    } catch (err) {
+      console.error('API error:', err);
+      setError(err.message || 'Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="section section-alt" id="contact">
       <div className="container">
@@ -417,22 +492,45 @@ function Contact() {
             <h3 className="contact-form-title">Send Us a Message</h3>
             <form onSubmit={handleSubmit}>
               <div className="form-row">
-                <div className="form-field"><label className="form-label">First Name</label><input className="form-control" type="text" placeholder="John" required /></div>
-                <div className="form-field"><label className="form-label">Last Name</label><input className="form-control" type="text" placeholder="Doe" required /></div>
+                <div className="form-field">
+                  <label className="form-label">First Name</label>
+                  <input className="form-control" type="text" name="firstName" placeholder="John" value={form.firstName} onChange={handleChange} required />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">Last Name</label>
+                  <input className="form-control" type="text" name="lastName" placeholder="Doe" value={form.lastName} onChange={handleChange} required />
+                </div>
               </div>
               <div className="form-row">
-                <div className="form-field"><label className="form-label">Email Address</label><input className="form-control" type="email" placeholder="john@company.com" required /></div>
-                <div className="form-field"><label className="form-label">Phone Number</label><input className="form-control" type="tel" placeholder="+91 98765 43210" /></div>
+                <div className="form-field">
+                  <label className="form-label">Email Address</label>
+                  <input className="form-control" type="email" name="email" placeholder="john@company.com" value={form.email} onChange={handleChange} required />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">Phone Number</label>
+                  <input className="form-control" type="tel" name="phone" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
+                </div>
               </div>
               <div className="form-field">
                 <label className="form-label">Service of Interest</label>
-                <select className="form-control">
+                <select className="form-control" name="service" value={form.service} onChange={handleChange}>
                   <option value="">Select a service...</option>
-                  <option>Web Development</option><option>Mobile App Development</option><option>IoT Solutions</option><option>Backend & DevOps</option><option>Digital Marketing</option><option>AI & Automation</option>
+                  <option>Web Development</option>
+                  <option>Mobile App Development</option>
+                  <option>IoT Solutions</option>
+                  <option>Backend &amp; DevOps</option>
+                  <option>Digital Marketing</option>
+                  <option>AI &amp; Automation</option>
                 </select>
               </div>
-              <div className="form-field"><label className="form-label">Your Message</label><textarea className="form-control" rows="5" placeholder="Tell us about your project..." required /></div>
-              <button type="submit" className={`form-submit${sent ? ' sent' : ''}`}>{sent ? '✓ Message Sent Successfully!' : 'Send Message →'}</button>
+              <div className="form-field">
+                <label className="form-label">Your Message</label>
+                <textarea className="form-control" rows="5" name="message" placeholder="Tell us about your project..." value={form.message} onChange={handleChange} required />
+              </div>
+              {error && <p style={{ color: '#ff4444', fontSize: '13px', marginBottom: '12px' }}>{error}</p>}
+              <button type="submit" className={`form-submit${sent ? ' sent' : ''}`} disabled={loading}>
+                {loading ? 'Sending...' : sent ? '✓ Message Sent Successfully!' : 'Send Message →'}
+              </button>
             </form>
           </div>
 
