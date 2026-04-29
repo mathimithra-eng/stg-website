@@ -92,9 +92,14 @@ function CodingBackground() {
       }
 
       const centerX = width / 2;
-      const centerY = isMobile ? height / 2.2 : height / 2;
-      
+      const centerY = height / 2;
+      const step = isMobile ? height * 0.7 : height * 0.9;
+
+      // Draw multiple 'STG' to ensure it's always visible somewhere
       mctx.fillText('STG', centerX, centerY);
+      mctx.fillText('STG', centerX, centerY - step);
+      mctx.fillText('STG', centerX, centerY + step);
+      
       maskData = mctx.getImageData(0, 0, width, height).data;
     };
 
