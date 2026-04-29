@@ -68,18 +68,31 @@ function CodingBackground() {
       maskCanvas.height = height;
       const isMobile = width < 768;
       
-      const fontSize = isMobile ? Math.min(width / 1.8, 280) : Math.min(width / 2.2, 480);
+      // Responsive sizing that guarantees fitting on screen
+      let fontSize = isMobile ? (width * 0.45) : (width * 0.35);
+      fontSize = Math.min(fontSize, isMobile ? 160 : 450);
+      
       mctx.font = `900 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
       
+      // Dynamic spacing
+      const spacing = isMobile ? 2 : Math.floor(width * 0.02);
       if (mctx.letterSpacing !== undefined) {
-        mctx.letterSpacing = isMobile ? '2px' : '35px';
+        mctx.letterSpacing = `${spacing}px`;
+      }
+
+      // Safeguard against overflow
+      let metrics = mctx.measureText('STG');
+      while (metrics.width > width * 0.9 && fontSize > 40) {
+        fontSize -= 5;
+        mctx.font = `900 ${fontSize}px Orbitron, sans-serif`;
+        metrics = mctx.measureText('STG');
       }
 
       const centerX = width / 2;
-      const centerY = isMobile ? height / 2.15 : height / 2;
+      const centerY = isMobile ? height / 2.2 : height / 2;
       
       mctx.fillText('STG', centerX, centerY);
       maskData = mctx.getImageData(0, 0, width, height).data;
