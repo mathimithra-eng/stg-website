@@ -334,7 +334,7 @@ function About() {
         </div>
 
         {/* STORY BEHIND STG */}
-        <div style={{ marginTop: '40px' }}>
+        <div style={{ marginTop: '24px' }}>
           <div className="about-grid">
             <div className="about-text">
               <h2 className="section-heading">The <strong>Story</strong> Behind<br /><strong>STG</strong></h2>
@@ -355,7 +355,7 @@ function About() {
         </div>
 
         {/* STATS */}
-        <div className="stats-bar" style={{ marginTop: '60px' }}>
+        <div className="stats-bar" style={{ marginTop: '40px' }}>
           {STATS.map((s, i) => (
             <div key={i} className="stat-item">
               <Counter to={s.to} suffix={s.suffix} />

@@ -21,7 +21,7 @@
     --font-body: 'Inter', sans-serif;
     --font-mono: 'Inter', monospace;
     --container: 1400px;
-    --section-pad: clamp(50px, 8vw, 90px);
+    --section-pad: clamp(40px, 6vw, 60px);
 }
 
 html {
@@ -348,7 +348,7 @@ body,
 Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     z-index: 10;
@@ -840,7 +840,7 @@ body,
     display: flex;
     justify-content: space-between;
     margin-top: 80px;
-    padding: 60px 0;
+    padding: 40px 0;
     border-top: 1px solid var(--border-red);
     border-bottom: 1px solid var(--border-red);
     flex-wrap: wrap;
@@ -1072,7 +1072,7 @@ body,
     background: #050505;
     border-top: 1px solid var(--border-red);
     border-bottom: 1px solid var(--border-red);
-    padding: 60px 0;
+    padding: 40px 0;
     position: relative;
     z-index: 10;
 }
@@ -1148,7 +1148,7 @@ body,
    FOOTER
 Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 .footer {
-    padding: 60px 0 50px;
+    padding: 32px 0 50px;
     background: transparent;
     border-top: 1px solid var(--border-red);
     position: relative;
@@ -1159,7 +1159,7 @@ body,
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .footer-brand-col {
