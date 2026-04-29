@@ -67,18 +67,21 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      const fontSize = isMobile ? Math.min(width / 2.0, 260) : Math.min(width / 2.4, 450);
+      
+      const fontSize = isMobile ? Math.min(width / 1.8, 280) : Math.min(width / 2.2, 480);
       mctx.font = `900 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
+      
       if (mctx.letterSpacing !== undefined) {
-        mctx.letterSpacing = isMobile ? '4px' : '30px';
+        mctx.letterSpacing = isMobile ? '2px' : '35px';
       }
 
-      // Center it slightly higher on mobile to account for navbar/scrolling
-      const centerY = isMobile ? height / 2.2 : height / 2;
-      mctx.fillText('STG', width / 2, centerY);
+      const centerX = width / 2;
+      const centerY = isMobile ? height / 2.15 : height / 2;
+      
+      mctx.fillText('STG', centerX, centerY);
       maskData = mctx.getImageData(0, 0, width, height).data;
     };
 
