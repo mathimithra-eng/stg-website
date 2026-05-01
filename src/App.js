@@ -67,16 +67,16 @@ function CodingBackground() {
       maskCanvas.width = width;
       maskCanvas.height = height;
       const isMobile = width < 768;
-      
+
       // Responsive sizing that guarantees fitting on screen
       let fontSize = isMobile ? (width * 0.45) : (width * 0.35);
       fontSize = Math.min(fontSize, isMobile ? 160 : 450);
-      
+
       mctx.font = `900 ${fontSize}px Orbitron, sans-serif`;
       mctx.textAlign = 'center';
       mctx.textBaseline = 'middle';
       mctx.fillStyle = 'white';
-      
+
       // Dynamic spacing
       const spacing = isMobile ? 2 : Math.floor(width * 0.02);
       if (mctx.letterSpacing !== undefined) {
@@ -99,7 +99,7 @@ function CodingBackground() {
       mctx.fillText('STG', centerX, centerY);
       mctx.fillText('STG', centerX, centerY - step);
       mctx.fillText('STG', centerX, centerY + step);
-      
+
       maskData = mctx.getImageData(0, 0, width, height).data;
     };
 
@@ -534,7 +534,7 @@ function Contact() {
           <div className="contact-info-side">
             <h2 className="contact-info-heading">Let's Build<br />Something <strong>Extraordinary</strong></h2>
             <p className="contact-info-text">Have a project in mind? Our team of engineers, designers, and strategists is ready to transform your vision into a powerful digital reality.</p>
-            
+
             <div className="contact-detail-list">
               <a href="tel:+918056823309" className="contact-detail-item">
                 <div className="contact-detail-icon">
