@@ -388,7 +388,7 @@ body,
 }
 
 .hero-logo-inline {
-     display: flex;
+    display: flex;
     align-items: center;
     gap: 14px;
     justify-content: center;
